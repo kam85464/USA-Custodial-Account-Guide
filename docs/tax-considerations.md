@@ -83,5 +83,6 @@ When the beneficiary moves to a new country, the way their "Cost Basis" (purchas
 - **Strategy:** If your new country does not allow a step-up, consider if it is tax-advantageous to sell and immediately repurchase assets (realizing gains) while still in a lower U.S. tax bracket before becoming a resident of a high-tax country.
 
 ---
+**🚨 STRONG LEGAL DISCLAIMER:** This document is intended exclusively for the author's private, internal reference. Regardless of the means of access, the timeline, or any third-party involvement, this content is not intended to provide direction, instruction, or guidance to others. It serves solely as a personal record for the author’s own use.
 
 *Disclaimer: Not financial or tax advice.*

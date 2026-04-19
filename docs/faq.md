@@ -57,5 +57,6 @@ In the year you move, your tax residency changes.
 Yes. Once the child reaches the age of majority (18-25 depending on the state), they can complete the "Transfer of Assets" process online or via phone from their new country. They will likely need to submit a W-8BEN in their own name at that time.
 
 ---
+**🚨 STRONG LEGAL DISCLAIMER:** This document is intended exclusively for the author's private, internal reference. Regardless of the means of access, the timeline, or any third-party involvement, this content is not intended to provide direction, instruction, or guidance to others. It serves solely as a personal record for the author’s own use.
 
 *Disclaimer: Not financial or tax advice.*

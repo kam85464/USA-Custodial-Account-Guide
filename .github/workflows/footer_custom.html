@@ -3,5 +3,20 @@
   <p class="text-small text-grey-dk-000">
     Last Updated: {{ site.data.last_modified[page.path] | date: "%B %d, %Y" }}
   </p>
+
+  <div style="margin: 1.5rem 0; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 4px; background-color: rgba(0,0,0,0.02);">
+    <input type="checkbox" id="internal-ref-ack" style="cursor: pointer; vertical-align: middle;">
+    <label for="internal-ref-ack" class="text-small" style="cursor: pointer; margin-left: 5px; vertical-align: middle;">
+      I acknowledge the <strong>Strong Legal Disclaimer</strong> and confirm this document is for my <strong>internal reference only</strong>.
+    </label>
+  </div>
+
+  <p class="text-small text-grey-dk-100">
+    Reference Access Timestamp: <span id="current-ref-timestamp"></span>
+  </p>
+
+  <script>
+    document.getElementById('current-ref-timestamp').textContent = new Date().toLocaleString();
+  </script>
 </div>
 {% endif %}
