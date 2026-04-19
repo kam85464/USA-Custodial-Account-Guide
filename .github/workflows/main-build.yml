@@ -1,39 +1,42 @@
-title: "Custodial Account Guide (U.S. → Abroad)"
-description: "A complete guide for immigrant parents managing U.S. custodial accounts with future plans to manage them from abroad."
-remote_theme: just-the-docs/just-the-docs
+name: Build and Deploy Jekyll site
 
-# Theme features
-logo: "/asset/logo.png"
-search_enabled: true
-color_scheme: dark
-aux_links:
-  "GitHub Repo":
-    - "https://github.com/kamalsoft/USA-Custodial-Account-Guide"
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
 
-markdown: kramdown
-kramdown:
-  input: GFM
-  hard_wrap: false
-plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
-  - jekyll-sitemap
-  - jekyll-include-cache
-  - jekyll-remote-theme
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
-# Enable Mermaid
-mermaid:
-  version: "10.2.4"
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
-# Navigation
-collections:
-  docs:
-    output: true
-    permalink: /docs/:name
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      - name: Build with Jekyll
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
 
-defaults:
-  - scope:
-      path: ""
-      type: docs
-    values:
-      layout: default
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
