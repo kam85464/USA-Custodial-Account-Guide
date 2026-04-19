@@ -52,9 +52,11 @@ When filing taxes in your resident country, use this logic to avoid paying tax t
 **Never** share your SSN or brokerage login with anyone. Keep your U.S. phone number (2FA) and email secure.
 
 ---
+**🚨 STRONG LEGAL DISCLAIMER:** This document is intended exclusively for the author's private, internal reference. Regardless of the means of access, the timeline, or any third-party involvement, this content is not intended to provide direction, instruction, or guidance to others. It serves solely as a personal record for the author’s own use.
+
+---
 
 *Disclaimer: This is a personal guidance document and does not constitute financial or tax advice.*
-
 ---
 
 *Disclaimer: Not financial or tax advice.*

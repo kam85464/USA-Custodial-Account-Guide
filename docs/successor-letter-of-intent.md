@@ -30,6 +30,8 @@ Sincerely,
 ---
 
 > **🚨 IMPORTANT LEGAL DISCLAIMER:**
+> This document is intended exclusively for the author's private, internal reference. Regardless of the means of access, the timeline, or any third-party involvement, this content is not intended to provide direction, instruction, or guidance to others. It serves solely as a personal record for the author’s own use.
+>
 > This Letter of Intent is for guidance purposes only and may not be legally binding depending on your state's jurisdiction. It does not replace the formal Successor Custodian designation required by the financial institution. Cross-border financial management involves significant tax and legal risks. You must consult with qualified tax and legal professionals in both the United States and your resident country before making any decisions. The author of this guide assumes no liability for financial losses or legal complications resulting from the use of this template.
 
 ---
