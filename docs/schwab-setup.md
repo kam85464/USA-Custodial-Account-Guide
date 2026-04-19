@@ -23,8 +23,7 @@ nav_order: 7
    - Locate your custodial account and look for the **"Successor Custodian"** designation section.
    - **Note:** If the online setting is not available, go to **Service** > **Forms** and search for the "Designation of Successor Custodian" form.
    - **Screen Description:** You will be required to provide the successor’s full legal name, SSN, and relationship to the child.
-   - ![Placeholder for Schwab Successor Screen](/asset/schwab-successor-ui.png)
-   - ![Placeholder for Schwab Successor Screen](../asset/schwab-successor-ui.png)
+   - *(Image: Schwab Successor Screen - Placeholder)*
 9. Fund account  
 10. Choose investments  
 

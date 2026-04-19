@@ -30,10 +30,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Generate Last Modified Data
+        run: |
+          mkdir -p _data
+          # Generates a JSON map of filename: unix_timestamp
+          python3 -c "import json, subprocess; files = [f for f in subprocess.check_output(['git', 'ls-files']).decode().splitlines() if f.endswith('.md')]; data = {f: subprocess.check_output(['git', 'log', '-1', '--format=%ct', f]).decode().strip() for f in files}; print(json.dumps(data))" > _data/last_modified.json
       - name: Link Checker
         uses: lycheeverse/lychee-action@v2.1.0
         with:
-          args: --verbose --no-progress './README.md' './docs/**/*.md'
+          args: --verbose --no-progress --base . './README.md' './docs/**/*.md'
           fail: true
       - name: Setup Pages
         uses: actions/configure-pages@v4
