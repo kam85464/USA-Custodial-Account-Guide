@@ -19,7 +19,7 @@ nav_order: 6
 6. Link U.S. bank account  
 7. Review & submit  
 8. **Designate Successor Custodian**
-   - Log in to Fidelity and navigate to **Profile** > **Account Relationships**.
+   - Log in to Fidelity and navigate to **Profile** > **Account Relationships** (or use this [Successor Template](./successor-custodian-letter.md) if required).
    - Locate the UGMA account and click **"Add Successor Custodian"**.
    - **Screen Description:** The interface will ask for the Successor's legal name, Social Security Number, and relationship to the minor. 
    - *Pro Tip:* If your spouse also has a Fidelity account, the process is much faster as their details will auto-populate.
