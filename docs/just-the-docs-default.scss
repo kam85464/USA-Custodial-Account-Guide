@@ -1,0 +1,15 @@
+---
+---
+@import "just-the-docs";
+
+// Custom Banner Styling
+.main-content-wrap::before {
+    content: "";
+    display: block;
+    height: 300px;
+    width: 100%;
+    background: url('/asset/banner.png') no-repeat center center;
+    background-size: cover;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+}
