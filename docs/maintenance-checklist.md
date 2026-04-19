@@ -8,7 +8,7 @@ nav_order: 11
 - Open custodial account  
 - Maintain U.S. bank account  
 - Set U.S. mailing address  
-- **Designate Successor Custodian** (Required for continuity)
+- **Designate Successor Custodian** (Required for continuity - [Template](./successor-custodian-letter.md))
 - Store documents  
 - Enable 2FA  
 
