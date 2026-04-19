@@ -23,7 +23,7 @@ nav_order: 6
    - Locate the UGMA account and click **"Add Successor Custodian"**.
    - **Screen Description:** The interface will ask for the Successor's legal name, Social Security Number, and relationship to the minor. 
    - *Pro Tip:* If your spouse also has a Fidelity account, the process is much faster as their details will auto-populate.
-   - ![Placeholder for Fidelity Successor Screen](/asset/fidelity-successor-ui.png)
+   - *(Image: Fidelity Successor Screen - Placeholder)*
 9. Fund the account  
 10. Choose investments (ETFs/index funds)  
 

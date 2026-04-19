@@ -1,0 +1,7 @@
+{% if site.data.last_modified[page.path] %}
+<div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
+  <p class="text-small text-grey-dk-000">
+    Last Updated: {{ site.data.last_modified[page.path] | date: "%B %d, %Y" }}
+  </p>
+</div>
+{% endif %}
