@@ -24,5 +24,4 @@ A custodial account is a financial account where:
 ---
 
 *Disclaimer: Not financial or tax advice.*
----
-End of the document
+
