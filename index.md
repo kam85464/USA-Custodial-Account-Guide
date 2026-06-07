@@ -45,3 +45,7 @@ This GitHub Pages site includes:
 ---
 
 **Disclaimer:** Not financial or tax advice. International financial regulations are complex. See [README](README.md) for the full legal disclosure.
+
+---
+End of the document
+
