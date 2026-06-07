@@ -43,7 +43,7 @@ This GitHub Pages site includes:
 - [Lifecycle Flowchart](diagrams/lifecycle-flowchart.md)  
 
 ---
-
+ 
 **Disclaimer:** Not financial or tax advice. International financial regulations are complex. See [README](README.md) for the full legal disclosure.
 
 ---
