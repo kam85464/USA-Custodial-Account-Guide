@@ -5,7 +5,7 @@ on:
     types: [opened, edited, synchronize, ready_for_review]
 
 permissions:
-  pull_requests: write
+  pull-requests: write
   contents: read
 
 jobs:
@@ -17,8 +17,11 @@ jobs:
         with:
           script: |
             let prBody = context.payload.pull_request.body || "";
+            
+            // Strip out markdown/HTML comments
             prBody = prBody.replace(//g, "");
             
+            // Matches any empty checkbox: '- [ ]' or '* [ ]'
             const uncheckedRegex = /^[\s]*[-*]\s+\[\s\]/gm;
             const hasUnchecked = uncheckedRegex.test(prBody);
             
