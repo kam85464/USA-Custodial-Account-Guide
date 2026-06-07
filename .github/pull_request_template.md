@@ -9,6 +9,6 @@
 - [ ] Manual verification completed (e.g., local environment testing)
 
 ## Ticket Details 
-[ ] Is ticket reference updated 
+- [ ] Is ticket reference updated 
 
 AB#
