@@ -1,0 +1,31 @@
+name: CI Tests & Performance
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+
+jobs:
+  run-tests-and-size:
+    name: "🛡️ Shield 4: Unit Tests & Metrics"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Execute Test Suite with Coverage
+        run: npm test -- --coverage
+
+      - name: Check Bundle Size Limits
+        run: npx size-limit
