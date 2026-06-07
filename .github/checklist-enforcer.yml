@@ -1,0 +1,29 @@
+name: "PR Checklist Enforcer"
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize]
+
+jobs:
+  check-tasks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check for uncompleted markdown checkboxes
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const prBody = context.payload.pull_request.body || "";
+            
+            // Regex to find unchecked boxes: "- [ ]" or "* [ ]"
+            // It ignores completely empty descriptions or commented-out sections
+            const uncheckedRegex = /^[\s]*[-*]\s+\[\s\]\s+(.+)/gm;
+            
+            const matches = [...prBody.matchAll(uncheckedRegex)];
+            
+            if (matches.length > 0) {
+              console.log("❌ Found uncompleted checklist items:");
+              matches.forEach(match => console.log(`  - ${match[1]}`));
+              core.setFailed(`You have ${matches.length} uncompleted task(s) in your PR description checklist.`);
+            } else {
+              console.log("✅ All checklist items are completed!");
+            }
