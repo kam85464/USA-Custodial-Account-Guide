@@ -5,7 +5,7 @@ on:
     types: [opened, edited, synchronize, ready_for_review]
 
 permissions:
-  pull_requests: write
+  pull-requests: write
   contents: read
 
 jobs:
@@ -16,11 +16,20 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            let prBody = context.payload.pull_request.body || "";
-            prBody = prBody.replace(//g, "");
+            const prBody = context.payload.pull_request.body || "";
             
-            const uncheckedRegex = /^[\s]*[-*]\s+\[\s\]/gm;
-            const hasUnchecked = uncheckedRegex.test(prBody);
+            // Split the description text by lines to analyze cleanly
+            const lines = prBody.split(/\r?\n/);
+            
+            // Check if any line contains an open markdown checkbox like "- [ ]" or "* [ ]"
+            let hasUnchecked = false;
+            for (const line of lines) {
+              const trimmed = line.trim();
+              if (trimmed.startsWith("- [ ]") || trimmed.startsWith("* [ ]")) {
+                hasUnchecked = true;
+                break;
+              }
+            }
             
             if (hasUnchecked) {
               core.setFailed("Cannot merge: One or more checklist items are incomplete.");
