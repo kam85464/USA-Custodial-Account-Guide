@@ -2,28 +2,63 @@ name: "PR Checklist Enforcer"
 
 on:
   pull_request:
-    types: [opened, edited, synchronize]
+    types: [opened, edited, synchronize, ready_for_review]
+
+# Required permissions to modify PR state and leave comments
+permissions:
+  pull_requests: write
+  contents: read
 
 jobs:
   check-tasks:
     runs-on: ubuntu-latest
     steps:
-      - name: Check for uncompleted markdown checkboxes
+      - name: Check Checklist Status
+        id: checklist
         uses: actions/github-script@v7
         with:
           script: |
             const prBody = context.payload.pull_request.body || "";
-            
-            // Regex to find unchecked boxes: "- [ ]" or "* [ ]"
-            // It ignores completely empty descriptions or commented-out sections
             const uncheckedRegex = /^[\s]*[-*]\s+\[\s\]\s+(.+)/gm;
-            
             const matches = [...prBody.matchAll(uncheckedRegex)];
             
             if (matches.length > 0) {
+              core.setOutput("completed", "false");
               console.log("❌ Found uncompleted checklist items:");
               matches.forEach(match => console.log(`  - ${match[1]}`));
-              core.setFailed(`You have ${matches.length} uncompleted task(s) in your PR description checklist.`);
+              core.setFailed("Cannot send for approval or merge: Checklist is incomplete.");
             } else {
+              core.setOutput("completed", "true");
               console.log("✅ All checklist items are completed!");
             }
+
+      - name: Demote to Draft if Incomplete
+        if: failure() && github.event.pull_request.draft == false
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const prNumber = context.issue.number;
+            
+            // 1. Demote the PR back to a Draft state using GitHub's GraphQL API
+            try {
+              const query = `
+                mutation($id: ID!) {
+                  convertPullRequestToDraft(input: {pullRequestId: $id}) {
+                    pullRequest { id isDraft }
+                  }
+                }
+              `;
+              const variables = { id: context.payload.pull_request.node_id };
+              await github.graphql(query, variables);
+              console.log("🔄 Successfully demoted PR back to Draft.");
+            } catch (error) {
+              console.log("⚠️ Demotion failed (likely missing GitHub Team permissions):", error.message);
+            }
+
+            // 2. Leave an explanatory comment for the developer
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: prNumber,
+              body: "⚠️ **Action Required:** This PR has been automatically moved back to **Draft** because one or more checkboxes in the verification checklist are not marked as completed. Please finish the tasks and mark them off before requesting review."
+            });
